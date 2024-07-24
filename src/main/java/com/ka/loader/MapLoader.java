@@ -1,14 +1,16 @@
-package com.ka;
+package com.ka.loader;
+
+import com.ka.carte.Map;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
-public class MapLoader implements Loader<Carte>{
+public class MapLoader implements DataLoader<Map> {
 
     @Override
-    public Carte load(String filePath) throws IOException, RuntimeException {
+    public Map load(String filePath) throws IOException, RuntimeException {
         List<String> lignesCarte = Files.readAllLines(Paths.get(filePath));
         if(lignesCarte.isEmpty() || lignesCarte.get(0).isEmpty())
             throw new RuntimeException("Carte invalide!");
@@ -19,6 +21,6 @@ public class MapLoader implements Loader<Carte>{
         for(int i = 0; i < longueur; i++){
             map[i] = lignesCarte.get(i).toCharArray();
         }
-        return new Carte(map, longueur, largeur);
+        return new Map(map, longueur, largeur);
     }
 }

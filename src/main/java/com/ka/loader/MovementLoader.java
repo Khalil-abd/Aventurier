@@ -1,13 +1,16 @@
-package com.ka;
+package com.ka.loader;
+
+import com.ka.character.Position;
+import com.ka.mouvement.MovementData;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
-public class MouvementLoader implements Loader<Mouvement>{
+public class MovementLoader implements DataLoader<MovementData> {
     @Override
-    public Mouvement load(String filePath) throws IOException, RuntimeException {
+    public MovementData load(String filePath) throws IOException, RuntimeException {
         List<String> lignesMouvements = Files.readAllLines(Paths.get(filePath));
 
         if(lignesMouvements.size() < 2)
@@ -22,6 +25,6 @@ public class MouvementLoader implements Loader<Mouvement>{
         int y = Character.getNumericValue(position.charAt(2));
 
         Position positionInitial = new Position(x, y);
-        return new Mouvement(positionInitial, mouvements);
+        return new MovementData(positionInitial, mouvements);
     }
 }

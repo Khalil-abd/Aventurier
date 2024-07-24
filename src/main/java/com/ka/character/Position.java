@@ -1,4 +1,4 @@
-package com.ka;
+package com.ka.character;
 
 public class Position {
     private int x;
@@ -17,19 +17,19 @@ public class Position {
         return y;
     }
 
-    public void moveUp(){
+    public void moveNorth(){
         this.y -= 1;
     }
 
-    public void moveDown(){
+    public void moveSouth(){
         this.y += 1;
     }
 
-    public void moveLeft(){
+    public void moveWest(){
         this.x -= 1;
     }
 
-    public void moveRight(){
+    public void moveEast(){
         this.x += 1;
     }
 

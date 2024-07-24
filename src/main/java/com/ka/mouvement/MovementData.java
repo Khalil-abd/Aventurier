@@ -1,10 +1,12 @@
-package com.ka;
+package com.ka.mouvement;
 
-public class Mouvement {
+import com.ka.character.Position;
+
+public class MovementData {
     private final Position initialPosition;
     private final String mouvements;
 
-    public Mouvement(Position initialPosition, String mouvements) {
+    public MovementData(Position initialPosition, String mouvements) {
         this.initialPosition = initialPosition;
         this.mouvements = mouvements;
     }
